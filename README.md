@@ -7,13 +7,13 @@
 El backend de "Forrajeria Damian" se encarga de manejar las operaciones relacionadas con el inventario de productos, el procesamiento de pedidos, la gestión de usuarios y otras funciones esenciales para el funcionamiento del sitio web. Este repositorio es una parte fundamental de la arquitectura de la aplicación, ya que permite la comunicación entre el frontend y la base de datos.
 
 
-#Funcionalidades clave:
+# Funcionalidades clave:
 - Gestión de inventario: Permite añadir, actualizar y eliminar productos del catálogo de alimentos para mascotas.
 - Procesamiento de pedidos: Gestiona el flujo de pedidos, desde la selección de productos hasta la confirmación y envío.
 - Gestión de usuarios: Proporciona autenticación y autorización para los usuarios, permitiendo el acceso seguro a las funcionalidades del sitio web.
 - Integración con base de datos: Utiliza una base de datos MongoDB para almacenar y recuperar información sobre productos, pedidos y usuarios.
 
-#Instrucciones de Uso:
+# Instrucciones de Uso:
 
 Clona el repositorio a tu máquina local utilizando el comando git clone.
 Asegúrate de tener Node.js y MongoDB instalados en tu sistema.
@@ -23,7 +23,7 @@ Inicia el servidor ejecutando npm start. El servidor se ejecutará en el puerto 
 Puedes realizar solicitudes a la API utilizando herramientas como Postman o integrándola con el frontend de la aplicación.
 
 
-#Contribuciones:
+# Contribuciones:
 
 ¡Las contribuciones al desarrollo de este proyecto son bienvenidas! Si deseas contribuir, sigue estos pasos:
 
