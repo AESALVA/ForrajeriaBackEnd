@@ -7,7 +7,7 @@ require('dotenv').config();
 let cors = require('cors')
 app.use(cors({origin:"*"}));
 
-mongoose.connect(process.env.URI, {
+mongoose.connect('mongodb+srv://DamianEduardo:raWlFhVWOx81FXz7@cluster0.rflxtdv.mongodb.net/ForrajeriaDamian?retryWrites=true&w=majority', {
     useNewUrlParser : true,
     useUnifiedTopology : true,
   }).then(()=>{console.log('database connection OK')}).catch((error)=>{console.error(error)});
