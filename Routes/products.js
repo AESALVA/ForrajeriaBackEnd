@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const Product = require("../Models/product");
 const { body, validationResult } = require("express-validator");
-const nodemailer = require("nodemailer");
 
 
 router
@@ -40,7 +39,30 @@ router
     } catch (error) {
       res.status(400).json({ error: true, message: error });
     }
+  }).put("/update/:id", async (req, res) => {
+    console.log("PUT /products/update");
+    const { body } = req;
+    const { id } = req.params;
+
+    try {
+      const modProduct = await Product.findByIdAndUpdate(id, body, {
+        useFindAndModify: false,
+      });
+      res.status(200).json(modProduct);
+    } catch (error) {
+      res.status(400).json({ error: true, message: error });
+    }
+  }).get("/:id", async(req,res)=>{
+    const {id} = req.params;
+    console.log('GET /products/'+id);
+    try {
+        const product = await Product.findOne({_id:id,});
+        res.status(200).json(product);
+    } catch (error) {
+        res.status(404).json({error:true,message:error,});
+    }
   })
+  
 
 
 
