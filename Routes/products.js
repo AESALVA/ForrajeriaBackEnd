@@ -14,6 +14,32 @@ router
     } catch (error) {
       res.status(400).json({ error: true, message: error });
     }
+  }).post("/newProduct", body("product").isLength({ min: 8, max: 300 }), async (req, res) => {
+    console.log("POST /products/newProduct");
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array(), message:"validation error" });
+    }
+
+    const { body } = req;
+
+    try {
+      const newProduct = new Product(body);
+      await newProduct.save();
+      res.status(200).json(newProduct);
+    } catch (error) {
+      res.status(400).json({ error: true, message: error });
+    }
+  }).delete("/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    console.log("DELETE /products/delete");
+    try {
+      const delProduct = await Product.findOneAndDelete({ _id: id });
+      res.status(200).json(delProduct);
+    } catch (error) {
+      res.status(400).json({ error: true, message: error });
+    }
   })
 
 
